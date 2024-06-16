@@ -68,7 +68,7 @@ screens:
           packages:
             - Firefox: org.mozilla.firefox
             - Ungoogle Chromium: io.github.ungoogled_software.ungoogled_chromium
-            - Discord but better (Veskto (Vesktop)p): dev.cenvord.vesktop
+            - Discord but better (Veskto (Vesktop)p): dev.vencord.vesktop
             - Discord but worse (matrix): org.kde.neochat
         Audio wouting:
           description: Make meows sound good :3

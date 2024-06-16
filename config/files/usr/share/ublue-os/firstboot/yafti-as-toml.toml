@@ -1,0 +1,115 @@
+title = "Welcome to uMeow :3"
+
+[properties]
+mode = "run-once"
+path = "~/.config/yafti/last-run"
+
+[screens.first-screen]
+source = "yafti.screen.title"
+values.title = "Welcome to uMeow :3"
+values.description = "Let's make the purrfect kittyputer UwU"
+
+[screens.check-no-fedora-flatpak]
+source = "yafti.screen.consent"
+values.title = "Wemoving fedora flatpaks?"
+values.description = "Fedora flatpak wemote was found :c Do you want to weplace it with flathub? This is wequiwed fow yafti to nyanstall flatpaks, and this will also wemove all installed flatpaks."
+values.condition.run = "flatpak remotes --columns=name | grep fedora"
+values.actions.run = "flatpak remove --noninteractive --all && flatpak remote-delete --system fedora && flatpak remote-delete --user fedora && flatpak remote-add --if-not-exists --system flathub https://dl.flathub.org/repo/flathub.flatpakrepo"
+
+[screens.check-system-flathub]
+source = "yafti.screen.consent"
+values.title = "Nyo flathub wepo OwO"
+values.description = "Flathub wemote is nyot installed :c Do you want to nyanstall it? :3 This wequiwed fow yafti to nyanstall flatpaks"
+values.condition.run = "flatpak remotes --system --columns=name | grep flathub | wc -l | grep '^0$'"
+values.actions.run = "flatpak remote-add --if-not-exists --system flathub https://dl.flathub.org/repo/flathub.flatpakrepo"
+
+[screens.applications]
+source = "yafti.screen.package"
+
+  [screens.applications.values]
+  title = "All the appitty apps!"
+  show_terminal = true
+  package_manager = "yafti.plugin.flatpak"
+  package_manager_defaults.user = false
+  package_manager_defaults.system = true
+    
+    [screens.applications.groups."KDE Gear"]
+    description = "KDE stuffs!"
+    default = true
+    
+      [screens.applications.groups."KDE Gear".packages]
+      Kcalc = "org.kde.kcalc"
+      Gwenview = "org.kde.gwenview"
+      Okular = "org.kde.okular"
+      Elisa = "org.kde.elisa"
+      Kolourpaint = "org.kde.kolourpaint"
+    
+    [screens.applications.groups.Cweative]
+    description = "Stuff to make cool media withs"
+    default = false
+
+      [screens.applications.groups.Cweative.packages]
+      Krita = "org.kde.krita"
+      "Vimdeo Editing (Kdenlive)" = "org.kde.kdenlive"
+      "Codecs do the shuffle (Handbreak)" = "fr.handbreak.ghb"
+      "The best 3d anymation/VFX softwawe evew" = "org.blender.Blender"
+      "Make 3D pweview images (Exhibit)" = "io.github.nokse22.Exhibit"
+    
+    [screens.applications.groups.Internet]
+    description = "Wowld fluffy net for meow"
+    default = true
+
+      [screens.applications.groups.Internet.packages]
+      Firefox = "org.mozilla.firefox"
+      "Ungoogled Chromium" = "io.github.ungoogled_software.ungoogled_chromium"
+      "Discord but better (Vesktop)" = "dev.vencord.vesktop"
+      "Discord but worse (matrix)" = "org.kde.neochat"
+
+    [screens.applications.groups."Audio wouting"]
+    description = "Makes meows sound good :3"
+    default = true
+
+      [screens.applications.groups."Audio wouting".packages]
+      qpwgraph = "org.rncbc.qpwgraph"
+      EasyEffects = "com.github.wwmm.easyeffects"
+
+    [screens.applications.groups.Development]
+    description = "Lots of fun for smort kitties"
+    default = true
+    
+      [screens.applications.groups.Development.packages]
+      HTTPie = "io.httpie.Httpie"
+      "Podman Desktop" = "io.podman_desktop.PodmanDesktop"
+      "Gnome Workbench" = "re.sonny.Workbench"
+
+    [screens.applications.groups."Media and Office"]
+    description = "Bowing but also watch stuffs!"
+    default = false
+
+      [screens.applications.groups."Media and Office".packages]
+      "Obfuscate all the thingies" = "com.belmoussaoui.Obfuscate"
+      LibreOffice = "org.libreoffice.LibreOffice"
+      VLC = "org.videolan.VLC"
+      Plots = "com.github.alexhuntley.Plots"
+
+    [screens.applications.groups.Other]
+    description = "Queer meows"
+    default = false
+      
+      [screens.applications.groups.Other.packages]
+      "Calligraphy (text to ascii art)" = "dev.geopjr.Calligraphy"
+      "Type racing" = "dev.bragefuglseth.Keypunch"
+      "Railway (train info)" = "de.schmidhuberj.DieBahn"
+      "Cavalier (funny music visualisation)" = "org.nickvision.cavalier"
+
+[screens.steam]
+source = "yafti.screen.consent"
+values.title = "Nyanstall Steam?"
+values.description = "Nyanstall Steam? Would be layered because flatpak version has no access to drm leasing for VR"
+values.actions.run = "rpm-ostree install steam steam-devices -yq"
+
+[screens.config]
+source = "yafti.screen.consent"
+values.title = "meowfig nyanstallation"
+values.description = "Do meow want to nyanstall meowfig configs?"
+values.actions.run = "/usr/libexec/get_melody_config.sh"
