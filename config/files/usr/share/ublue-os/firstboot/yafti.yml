@@ -10,7 +10,7 @@ screens:
     values:
       title: Welcome to uMeow :3
       description: |
-        Lets make the perfect kittyputer
+        Lets make the purrfect kittyputer UwU
 
   check-no-fedora-flatpak:
     source: yafti.screen.consent
@@ -26,25 +26,25 @@ screens:
   check-system-flathub:
     source: yafti.screen.consent
     values:
-      title: Nyo flathub repo OwO
+      title: Nyo flathub wepo OwO
       condition:
         run: flatpak remotes --system --columns=name | grep flathub | wc -l | grep '^0$'
       description: |
-        Flathub wemote is nyot installed :c Do you want to nyanstall it? :3 This wequiwed fow yafti to nyanstall flatpaks
+        Flathub wemote is nyot installed :c Do you want to nyanstall it? :3 This is wequiwed fow yafti to nyanstall flatpaks
       actions:
         - run: flatpak remote-add --if-not-exists --system flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
   applications:
     source: yafti.screen.package
     values:
-      title: All the apps!
+      title: All the appitty apps!
       show_terminal: true
       package_manager: yafti.plugin.flatpak
       package_manager_defaults:
         user: false
         system: true
       groups:
-        KDE Gears:
+        KDE Gear:
           description: KDE stuffs!
           default: true
           packages:
@@ -53,25 +53,25 @@ screens:
             - Okular: org.kde.okular
             - Elisa: org.kde.elisa
             - Kolourpaint: org.kde.kolourpaint
-        Creative:
-          description: Stuff to make cool media withs
+        Cweative:
+          description: Stuff to make kewl media with
           default: false
           packages:
             - Krita: org.kde.krita
-            - Vimdeo Editing (Kdenlive): org.kde.kdenlive
+            - Video Editing (Kdenlive): org.kde.kdenlive
             - Codecs do the shuffle (Handbrake): fr.handbrake.ghb
-            - Blender: org.blender.Blender
-            - Make 3D preview images (Exhibit): io.github.nokse22.Exhibit
+            - The best 3D anyamation/VFX softwawe evew (Blender): org.blender.Blender
+            - Make 3D pweview images (Exhibit): io.github.nokse22.Exhibit
         Intewnet:
-          description: World fluffy net for meow
+          description: Wowld fluffy net for meow
           default: true
           packages:
             - Firefox: org.mozilla.firefox
             - Ungoogle Chromium: io.github.ungoogled_software.ungoogled_chromium
             - Discord but better (Veskto (Vesktop)p): dev.cenvord.vesktop
             - Discord but worse (matrix): org.kde.neochat
-        Audio routing:
-          description: Make meows sound good and ensure they arrive where needed
+        Audio wouting:
+          description: Make meows sound good :3
           default: true
           packages:
             - qpwgraph: org.rncbc.qpwgraph
@@ -103,8 +103,8 @@ screens:
   steam:
     source: yafti.screen.consent
     values:
-      title: Instawll Steam?
-      description: Instawll Steam? Would be layered because flatpak version has no access to drm leasing for VR
+      title: Nyanstall Steam?
+      description: Nyanstall Steam? Would be layewed because flatpak version has no access to drm leasing for VR
       actions:
         - run: rpm-ostree install steam steam-devices -yq
 
