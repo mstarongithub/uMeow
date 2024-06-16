@@ -1,5 +1,5 @@
 # image will be published to ghcr.io/<user>/<name>
-name: uMeow
+name: umeow-kinoite-40-main
 # description will be included in the image's metadata
 description: Cute OS for cute kitty
 
