@@ -12,6 +12,28 @@ properties:
         description: |
           Lets make the perfect kittyputer
 
+    check-no-fedora-flatpak:
+      source: yafti.screen.consent
+      values:
+        title: Wemoving fedora flatpaks?
+        condition:
+          run: flatpak remotes --columns=name | grep fedora
+        description: |
+          Fedora flatpak wemote was found :c Do you want to weplace it with flathub? This is wequiwed fow yafti to nyanstall flatpaks, and this will also wemove all installed flatpaks.
+        actions:
+          - run: flatpak remove --noninteractive --all && flatpak remote-delete --system fedora && flatpak remote-delete --user fedora && flatpak remote-add --if-not-exists --system flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+
+    check-system-flathub:
+      source: yafti.screen.consent
+      values:
+        title: Nyo flathub repo OwO
+        condition:
+          run: flatpak remotes --system --columns=name | grep flathub | wc -l | grep '^0$'
+        description: |
+          Flathub wemote is nyot installed :c Do you want to nyanstall it? :3 This wequiwed fow yafti to nyanstall flatpaks
+        actions:
+          - run: flatpak remote-add --if-not-exists --system flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+
     applications:
       source: yafti.screen.package
       values:
@@ -22,6 +44,15 @@ properties:
           user: false
           system: true
         groups:
+          KDE Gears:
+            description: KDE stuffs!
+            default: true
+            packages:
+              - Kcalc: org.kde.kcalc
+              - Gwenview: org.kde.gwenview
+              - Okular: org.kde.okular
+              - Elisa: org.kde.elisa
+              - Kolourpaint: org.kde.kolourpaint
           Creative:
             description: Stuff to make cool media withs
             default: false
@@ -59,6 +90,7 @@ properties:
               Obfuscate all the thingies: com.belmoussaoui.Obfuscate
               LibreOffice: org.libreoffice.LibreOffice
               VLC: org.videolan.VLC
+              Elisa:
           Other:
             description: Queer meows
             default: false
@@ -66,6 +98,14 @@ properties:
               - Calligraphy (text to ascii art): dev.geopjr.Calligraphy
               - Type Racing: dev.bragefuglseth.Keypunch
               - Railway (train info): de.schmidhuberj.DieBahn
+
+    steam:
+      source: yafti.screen.consent
+      values:
+        title: Instawll Steam?
+        description: Instawll Steam? Would be layered because flatpak version has no access to drm leasing for VR
+        actions:
+          - run: rpm-ostree install steam steam-devices -yq
 
     config:
       source: yafti.screen.consent
