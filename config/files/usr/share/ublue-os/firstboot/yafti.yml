@@ -87,10 +87,10 @@ screens:
           description: Bowing but also watch stuffs!
           default: true
           packages:
-            Obfuscate all the thingies: com.belmoussaoui.Obfuscate
-            LibreOffice: org.libreoffice.LibreOffice
-            VLC: org.videolan.VLC
-            Plots: com.github.alexhuntley.Plots
+            - Obfuscate all the thingies: com.belmoussaoui.Obfuscate
+            - LibreOffice: org.libreoffice.LibreOffice
+            - VLC: org.videolan.VLC
+            - Plots: com.github.alexhuntley.Plots
         Other:
           description: Queer meows
           default: false
