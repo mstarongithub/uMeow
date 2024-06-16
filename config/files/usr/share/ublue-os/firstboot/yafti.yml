@@ -90,7 +90,7 @@ screens:
             Obfuscate all the thingies: com.belmoussaoui.Obfuscate
             LibreOffice: org.libreoffice.LibreOffice
             VLC: org.videolan.VLC
-            Elisa:
+            Plots: com.github.alexhuntley.Plots
         Other:
           description: Queer meows
           default: false
@@ -98,6 +98,7 @@ screens:
             - Calligraphy (text to ascii art): dev.geopjr.Calligraphy
             - Type Racing: dev.bragefuglseth.Keypunch
             - Railway (train info): de.schmidhuberj.DieBahn
+            - Cavalier (funny music visualisation): org.nickvision.cavalier
 
   steam:
     source: yafti.screen.consent
