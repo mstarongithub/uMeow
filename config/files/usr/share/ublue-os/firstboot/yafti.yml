@@ -1,0 +1,76 @@
+title: Welcome to uMeow :3
+
+properties:
+  mode: "run-once"
+  path: "~/.config/yafti/last-run"
+
+  screens:
+    first-screen:
+      source: yafti.screen.title
+      values:
+        title: Welcome to uMeow :3
+        description: |
+          Lets make the perfect kittyputer
+
+    applications:
+      source: yafti.screen.package
+      values:
+        title: All the apps!
+        show_terminal: true
+        package_manager: yafti.plugin.flatpak
+        package_manager_defaults:
+          user: false
+          system: true
+        groups:
+          Creative:
+            description: Stuff to make cool media withs
+            default: false
+            packages:
+              - Krita: org.kde.krita
+              - Vimdeo Editing (Kdenlive): org.kde.kdenlive
+              - Codecs do the shuffle (Handbrake): fr.handbrake.ghb
+              - Blender: org.blender.Blender
+              - Make 3D preview images (Exhibit): io.github.nokse22.Exhibit
+          Intewnet:
+            description: World fluffy net for meow
+            default: true
+            packages:
+              - Firefox: org.mozilla.firefox
+              - Ungoogle Chromium: io.github.ungoogled_software.ungoogled_chromium
+              - Discord but better (Veskto (Vesktop)p): dev.cenvord.vesktop
+              - Discord but worse (matrix): org.kde.neochat
+          Audio routing:
+            description: Make meows sound good and ensure they arrive where needed
+            default: true
+            packages:
+              - qpwgraph: org.rncbc.qpwgraph
+              - EasyEffects: com.github.wwmm.easyeffects
+          Development:
+            description: Lots of fun for smort kitties
+            default: true
+            packages:
+              - HTTPie: io.httpie.Httpie
+              - Podman Desktop: io.podman_desktop.PodmanDesktop
+              - Gnome Workbench: re.sonny.Workbench
+          Media and Office:
+            description: Bowing but also watch stuffs!
+            default: true
+            packages:
+              Obfuscate all the thingies: com.belmoussaoui.Obfuscate
+              LibreOffice: org.libreoffice.LibreOffice
+              VLC: org.videolan.VLC
+          Other:
+            description: Queer meows
+            default: false
+            packages:
+              - Calligraphy (text to ascii art): dev.geopjr.Calligraphy
+              - Type Racing: dev.bragefuglseth.Keypunch
+              - Railway (train info): de.schmidhuberj.DieBahn
+
+    config:
+      source: yafti.screen.consent
+      values:
+        title: meowfig nyanstallation
+        description: Do meow want to nyanstall meowfig configs?
+        actions:
+          - run: /usr/libexec/get_melody_config.sh
