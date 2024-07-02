@@ -13,6 +13,7 @@ install:
   - ripgrep
   - btop
   - bat
+  - tldr
 remove:
   # "firefox" is the main package, "firefox-langpacks" is a dependency
   - firefox
